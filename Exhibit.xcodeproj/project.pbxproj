@@ -11,10 +11,24 @@
 		3A40066E18B53113005F43A6 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A40066D18B53113005F43A6 /* ScreenSaver.framework */; };
 		3A40068318B53129005F43A6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A40068218B53129005F43A6 /* WebKit.framework */; };
 		3A40068518B53226005F43A6 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A40068418B53226005F43A6 /* index.html */; };
+		7D17C39420AFA75500ABCED3 /* highlight.pack.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7D17C2E520AFA07700ABCED3 /* highlight.pack.js */; };
 		7D4A13BD20A51EF40087C1B9 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 7D4A13BB20A51EF40087C1B9 /* index.js */; };
 		7D4A13BE20A51EF40087C1B9 /* index.css in Resources */ = {isa = PBXBuildFile; fileRef = 7D4A13BC20A51EF40087C1B9 /* index.css */; };
 		7D4A13C020A51F750087C1B9 /* WSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A13BF20A51F750087C1B9 /* WSView.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7D2F179920A539DD0012BA50 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = lib/highlight;
+			dstSubfolderSpec = 7;
+			files = (
+				7D17C39420AFA75500ABCED3 /* highlight.pack.js in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3A40066818B53112005F43A6 /* Exhibit.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Exhibit.saver; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +41,7 @@
 		3A40068218B53129005F43A6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3A40068418B53226005F43A6 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = SOURCE_ROOT; };
 		3A95A94B18EA12D30036779C /* WSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSView.h; sourceTree = SOURCE_ROOT; };
+		7D17C2E520AFA07700ABCED3 /* highlight.pack.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.pack.js; sourceTree = "<group>"; };
 		7D4A13BB20A51EF40087C1B9 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = SOURCE_ROOT; };
 		7D4A13BC20A51EF40087C1B9 /* index.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = index.css; sourceTree = SOURCE_ROOT; };
 		7D4A13BF20A51F750087C1B9 /* WSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSView.m; sourceTree = SOURCE_ROOT; };
@@ -87,6 +102,7 @@
 		3A40067318B53113005F43A6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7D17C2E320AFA07700ABCED3 /* lib */,
 				7D4A13BF20A51F750087C1B9 /* WSView.m */,
 				7D4A13BC20A51EF40087C1B9 /* index.css */,
 				7D4A13BB20A51EF40087C1B9 /* index.js */,
@@ -96,6 +112,22 @@
 			);
 			name = Source;
 			path = "That Wednesday";
+			sourceTree = "<group>";
+		};
+		7D17C2E320AFA07700ABCED3 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				7D17C2E420AFA07700ABCED3 /* highlight */,
+			);
+			path = lib;
+			sourceTree = SOURCE_ROOT;
+		};
+		7D17C2E420AFA07700ABCED3 /* highlight */ = {
+			isa = PBXGroup;
+			children = (
+				7D17C2E520AFA07700ABCED3 /* highlight.pack.js */,
+			);
+			path = highlight;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +152,7 @@
 				3A40066418B53112005F43A6 /* Headers */,
 				3A40066518B53112005F43A6 /* Resources */,
 				3A40066618B53112005F43A6 /* Rez */,
+				7D2F179920A539DD0012BA50 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -263,8 +296,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.avery.Exhibit;
 				PRODUCT_NAME = $TARGET_NAME;
 				WRAPPER_EXTENSION = saver;
@@ -275,8 +313,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = io.avery.Exhibit;
 				PRODUCT_NAME = $TARGET_NAME;
 				WRAPPER_EXTENSION = saver;

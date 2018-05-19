@@ -5,8 +5,15 @@
 
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview {
   if (!(self = [super initWithFrame:frame isPreview:isPreview])) return nil;
-
-  NSURL* indexHTMLDocumentURL = [NSURL URLWithString:[[[NSURL fileURLWithPath:[[NSBundle bundleForClass:self.class].resourcePath stringByAppendingString:@"/index.html"] isDirectory:NO] description] stringByAppendingFormat:@"?screensaver=1%@", self.isPreview ? @"&is_preview=1" : @""]];
+  
+  // TODO: Find files from config.
+  NSString *path = @"/Users/kevinavery/codes/code-screensaver/exhibit/index.js";
+  NSString *fileContents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+  NSString *encodedString = [fileContents stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+  
+  NSLog(@"%@ %@", fileContents, encodedString);
+  
+  NSURL* indexHTMLDocumentURL = [NSURL URLWithString:[[[NSURL fileURLWithPath:[[NSBundle bundleForClass:self.class].resourcePath stringByAppendingString:@"/index.html"] isDirectory:NO] description] stringByAppendingFormat:@"?screensaver=1&contents=%@%@", encodedString, self.isPreview ? @"&is_preview=1" : @""]];
 
   WebView* webView = [[WebView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, frame.size.height)];
   webView.frameLoadDelegate = self;

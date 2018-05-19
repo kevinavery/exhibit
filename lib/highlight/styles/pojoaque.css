@@ -1,18 +1,17 @@
+/*
 
-html, body {
-  width: 100%;
-  height: 100%;
-}
+Pojoaque Style by Jason Tate
+http://web-cms-designs.com/ftopict-10-pojoaque-style-for-highlight-js-code-highlighter.html
+Based on Solarized Style from http://ethanschoonover.com/solarized
 
-body {
-  background: radial-gradient(at top, rgb(24,55,62) 20%, rgb(5,17,18));
-}
+*/
 
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
   color: #dccf8f;
+  background: url(./pojoaque.jpg) repeat scroll left top #181914;
 }
 
 .hljs-comment,
