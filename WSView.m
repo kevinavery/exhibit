@@ -15,6 +15,7 @@
   
   NSURL* indexHTMLDocumentURL = [NSURL URLWithString:[[[NSURL fileURLWithPath:[[NSBundle bundleForClass:self.class].resourcePath stringByAppendingString:@"/index.html"] isDirectory:NO] description] stringByAppendingFormat:@"?screensaver=1&contents=%@%@", encodedString, self.isPreview ? @"&is_preview=1" : @""]];
 
+  //NSURL *indexHTMLDocumentURL = [NSURL URLWithString:@"http://animejs.com/documentation/"];
   WebView* webView = [[WebView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, frame.size.height)];
   webView.frameLoadDelegate = self;
   webView.drawsBackground = NO; // Avoids a "white flash" just before the index.html file has loaded

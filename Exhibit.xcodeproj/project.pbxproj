@@ -12,12 +12,23 @@
 		3A40068318B53129005F43A6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A40068218B53129005F43A6 /* WebKit.framework */; };
 		3A40068518B53226005F43A6 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A40068418B53226005F43A6 /* index.html */; };
 		7D17C39420AFA75500ABCED3 /* highlight.pack.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7D17C2E520AFA07700ABCED3 /* highlight.pack.js */; };
+		7D17C43F20B0A5DD00ABCED3 /* anime.min.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7D17C3EC20B0A5B900ABCED3 /* anime.min.js */; };
 		7D4A13BD20A51EF40087C1B9 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 7D4A13BB20A51EF40087C1B9 /* index.js */; };
 		7D4A13BE20A51EF40087C1B9 /* index.css in Resources */ = {isa = PBXBuildFile; fileRef = 7D4A13BC20A51EF40087C1B9 /* index.css */; };
 		7D4A13C020A51F750087C1B9 /* WSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4A13BF20A51F750087C1B9 /* WSView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7D17C39A20B0A59200ABCED3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = lib/anime;
+			dstSubfolderSpec = 7;
+			files = (
+				7D17C43F20B0A5DD00ABCED3 /* anime.min.js in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D2F179920A539DD0012BA50 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,6 +53,7 @@
 		3A40068418B53226005F43A6 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = SOURCE_ROOT; };
 		3A95A94B18EA12D30036779C /* WSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSView.h; sourceTree = SOURCE_ROOT; };
 		7D17C2E520AFA07700ABCED3 /* highlight.pack.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.pack.js; sourceTree = "<group>"; };
+		7D17C3EC20B0A5B900ABCED3 /* anime.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = anime.min.js; sourceTree = "<group>"; };
 		7D4A13BB20A51EF40087C1B9 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = SOURCE_ROOT; };
 		7D4A13BC20A51EF40087C1B9 /* index.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = index.css; sourceTree = SOURCE_ROOT; };
 		7D4A13BF20A51F750087C1B9 /* WSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSView.m; sourceTree = SOURCE_ROOT; };
@@ -117,6 +129,7 @@
 		7D17C2E320AFA07700ABCED3 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				7D17C39C20B0A5B900ABCED3 /* anime */,
 				7D17C2E420AFA07700ABCED3 /* highlight */,
 			);
 			path = lib;
@@ -128,6 +141,14 @@
 				7D17C2E520AFA07700ABCED3 /* highlight.pack.js */,
 			);
 			path = highlight;
+			sourceTree = "<group>";
+		};
+		7D17C39C20B0A5B900ABCED3 /* anime */ = {
+			isa = PBXGroup;
+			children = (
+				7D17C3EC20B0A5B900ABCED3 /* anime.min.js */,
+			);
+			path = anime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +174,7 @@
 				3A40066518B53112005F43A6 /* Resources */,
 				3A40066618B53112005F43A6 /* Rez */,
 				7D2F179920A539DD0012BA50 /* CopyFiles */,
+				7D17C39A20B0A59200ABCED3 /* CopyFiles */,
 			);
 			buildRules = (
 			);

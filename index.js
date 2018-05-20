@@ -1,23 +1,82 @@
 'use strict';
 
-const root = document.createElement('div');
-document.body.appendChild(root);
+start();
 
-draw();
+function start() {
+  const numPanels = 10;
+  for (let i = 0; i < numPanels; i++) {
+    buildPanel()
+  }
+}
 
-function draw() {
-  console.log('draw');
-
-  const url = new URL(window.location.href);
-  const contents = url.searchParams.get('contents') || defaultContent();
-
-  const h = hljs.highlightAuto(contents);
+function buildPanel() {
+  const content = randomContent();
+  const h = hljs.highlightAuto(content);
 
   console.log(h);
 
-  root.innerHTML = `<pre class='hljs'><code>${h.value}</code></pre>`;
+  const offset = 30;
+  const leftOffset = randomBetween(0, 10) * 100;
+
+  const e = document.createElement('pre');
+  e.className = 'hljs';
+  e.style.position = 'absolute';
+  e.style.top = offset + 'px';
+  e.style.left = leftOffset + 'px';
+  e.style.opacity = '0';
+  e.style.filter = 'blur(' + randomBetween(0, 5) + 'px)';
+  e.style.fontSize = randomBetween(8, 12) + 'px';
+  e.style.transform = 'translateY('
+  e.innerHTML = h.value;
+
+  document.body.appendChild(e);
+
+  // TODO: cap dist depending on size of code
+  const dist = 100 + randomBetween(0, 300);
+  const speed = 5 + randomBetween(0, 10);
+  const translateDuration = 1000 / (speed / dist);
+  const fadeDuration = 5000;
+
+  anime({
+    targets: e,
+    opacity: 1,
+    duration: fadeDuration,
+    easing: 'linear',
+    complete: function() {
+      anime({
+        targets: e,
+        opacity: 0,
+        delay: translateDuration - (fadeDuration * 2),
+        duration: fadeDuration,
+        easing: 'linear'
+      })
+    }
+  })
+
+  anime({
+    targets: e,
+    translateY: -dist,
+    duration: translateDuration,
+    easing: 'linear',
+    complete: function() {
+      document.body.removeChild(e);
+      buildPanel();
+    }
+  })
 }
 
+function randomBetween(a, b) {
+  return Math.floor(Math.random() * (b - a)) + a;
+}
+
+function randomBoolean() {
+  return Math.random() >= 0.5;
+}
+
+function randomContent() {
+  const url = new URL(window.location.href);
+  return url.searchParams.get('contents') || defaultContent();
+}
 
 function defaultContent() {
   return `
